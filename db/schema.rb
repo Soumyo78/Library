@@ -14,48 +14,48 @@
 
 ActiveRecord::Schema.define(version: 20_210_511_191_131) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'authors', force: :cascade do |t|
-    t.string 'first_name', null: false
-    t.string 'last_name', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['last_name'], name: 'index_authors_on_last_name'
+  create_table "authors", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["last_name"], name: "index_authors_on_last_name"
   end
 
-  create_table 'book_copies', force: :cascade do |t|
-    t.bigint 'book_id', null: false
-    t.string 'isbn', null: false
-    t.date 'published', null: false
-    t.integer 'format', null: false
-    t.bigint 'user_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['book_id'], name: 'index_book_copies_on_book_id'
-    t.index ['isbn'], name: 'index_book_copies_on_isbn'
-    t.index ['user_id'], name: 'index_book_copies_on_user_id'
+  create_table "book_copies", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.string "isbn", null: false
+    t.date "published", null: false
+    t.integer "format", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_copies_on_book_id"
+    t.index ["isbn"], name: "index_book_copies_on_isbn"
+    t.index ["user_id"], name: "index_book_copies_on_user_id"
   end
 
-  create_table 'books', force: :cascade do |t|
-    t.string 'title', null: false
-    t.bigint 'author_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['author_id'], name: 'index_books_on_author_id'
-    t.index ['title'], name: 'index_books_on_title'
+  create_table "books", force: :cascade do |t|
+    t.string "title", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["title"], name: "index_books_on_title"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'first_name', null: false
-    t.string 'last_name', null: false
-    t.string 'email', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_users_on_email'
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email"
   end
 
-  add_foreign_key 'book_copies', 'books'
-  add_foreign_key 'book_copies', 'users'
-  add_foreign_key 'books', 'authors'
+  add_foreign_key "book_copies", "books"
+  add_foreign_key "book_copies", "users"
+  add_foreign_key "books", "authors"
 end

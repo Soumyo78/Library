@@ -24,7 +24,7 @@
 #  fk_rails_...  (book_id => books.id)
 #  fk_rails_...  (user_id => users.id)
 #
-require 'test_helper'
+require "test_helper"
 
 class BookCopyTest < ActiveSupport::TestCase
   # test "the truth" do

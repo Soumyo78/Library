@@ -4,5 +4,12 @@
 #
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api, defaults: { format: "json" } do
+    namespace :v1 do
+      resources :authors, only: %i[index create update destroy show]
+      resources :books, only: %i[index create update destroy show]
+      resources :book_copies, only: %i[index create update destroy show]
+      resources :users, only: %i[index create update destroy show]
+    end
+  end
 end

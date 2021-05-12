@@ -14,7 +14,7 @@
 #
 #  index_authors_on_last_name  (last_name)
 #
-require 'test_helper'
+require "test_helper"
 
 class AuthorTest < ActiveSupport::TestCase
   # test "the truth" do

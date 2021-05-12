@@ -19,7 +19,7 @@
 #
 #  fk_rails_...  (author_id => authors.id)
 #
-require 'test_helper'
+require "test_helper"
 
 class BookTest < ActiveSupport::TestCase
   # test "the truth" do
