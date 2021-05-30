@@ -15,6 +15,9 @@
 #  index_authors_on_last_name  (last_name)
 #
 class Author < ApplicationRecord
+  paginates_per 10
+  max_paginates_per 100
+
   has_many :books
 
   validates :first_name, :last_name, presence: true

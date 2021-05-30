@@ -24,4 +24,7 @@ class Book < ApplicationRecord
   has_many :book_copies
 
   validates :title, :author, presence: true
+
+  paginates_per 10
+  max_paginates_per 25
 end

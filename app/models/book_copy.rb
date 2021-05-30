@@ -31,4 +31,8 @@ class BookCopy < ApplicationRecord
   validates :isbn, :format, :published, :book, presence: true
 
   enum format: { hardback: 1, paperback: 2, ebook: 3 }
+
+  def find_book
+    book_name = Book.find(self.book_id)
+  end
 end

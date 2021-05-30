@@ -18,5 +18,9 @@
 class User < ApplicationRecord
   has_many :book_copies
 
-  validates :first_name, :last_name, :email, presence: true, format: { with: /\A[a-zA-Z0-9+_.-]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, message: "Enter a valid email address" }
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, uniqueness: true, format: { with: /\A[a-zA-Z0-9+_.-]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, message: "Enter a valid email address" }
+
+  paginates_per 10
+  max_paginates_per 25
 end

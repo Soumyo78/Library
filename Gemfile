@@ -37,6 +37,8 @@ group :development, :test do
   gem "faker"
   gem "pry"
   gem "rspec-rails"
+  gem "kaminari"
+  gem "brakeman"
 end
 
 group :development do
@@ -48,3 +50,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+
+gem "bullet", group: "development"

@@ -1,7 +1,6 @@
 class Api::V1::BookSerializer < ActiveModel::Serializer
-  attributes :id, :title, :author, :author, :book_copies
+  attributes :id, :title
 
-  def author
-    instance_options[:without_serializer] ? object.author : AuthorSerializer.new(object.author, without_serializer: true)
-  end
+  belongs_to :author, serializer: Api::V1::AuthorSerializer
+  has_many :book_copies, serializer: Api::V1::BookBookCopySerializer
 end
